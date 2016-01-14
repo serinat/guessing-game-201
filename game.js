@@ -1,10 +1,8 @@
-   var counter = 0
-
+   var counter = 0;
 
    var userName = prompt("Hello what's your name?");
     console.log("This is the users name" + " " + userName);
     alert("Hi" + " " + userName + " " + "I'm going to ask you a couple of yes or no questions so you can get to know me.");
-
 
    var ques1 = prompt("Do I have any pets?");
     console.log("Answer to ques1" + " " + ques1);
@@ -54,4 +52,23 @@
 
    alert(userName + " " + "you got" + " " + counter + " " + "out of 3 right!")
 
-   
+
+
+
+
+
+   var quesBonus = false;
+   while(!quesBonus){
+   var ques4 = parseInt(prompt("Bonus question: How many countries have I travelled to? *Hint its between 1 - 15*"));
+     console.log("Answer to bonus question" + " " + quesBonus);
+     var numCountries = 12;
+
+   if (ques4 === numCountries){
+     alert("Yup I have been to 12 countries");
+     quesBonus = true;
+   } else if (numCountries < ques4) {
+     alert("You're too high, guess again!");
+   } else if (numCountries > ques4){
+     alert("You're too low, guess again!");
+   }
+ };
