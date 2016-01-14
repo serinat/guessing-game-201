@@ -1,4 +1,6 @@
    var counter = 0;
+   var quesBonus = false;
+   var numCountries = 12;
 
    var userName = prompt("Hello what's your name?");
     console.log("This is the users name" + " " + userName);
@@ -11,7 +13,7 @@
     console.log("no is correct");
     alert(userName + " " + "you're right I dont have any pets.");
     counter ++;
-  } else if (ques1 === "yes" || ques1 === "YES") {
+   } else if (ques1 === "yes" || ques1 === "YES") {
       console.log("yes is incorrect");
       alert("Wrong! I don't have any pets");
    } else if (ques1 !== "yes" || "YES" || "no" || "NO"){
@@ -53,16 +55,10 @@
    alert(userName + " " + "you got" + " " + counter + " " + "out of 3 right!")
 
 
-
-
-
-
-   var quesBonus = false;
    while(!quesBonus){
    var ques4 = parseInt(prompt("Bonus question: How many countries have I travelled to? *Hint its between 1 - 15*"));
      console.log("Answer to bonus question" + " " + quesBonus);
-     var numCountries = 12;
-
+     
    if (ques4 === numCountries){
      alert("Yup I have been to 12 countries");
      quesBonus = true;
