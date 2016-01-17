@@ -2,96 +2,118 @@ var questions = ["Do I have any pets?", "Do I love Redbull?", "Is black my favor
 var answers = ["no", "yes", "yes"];
 var counter = 0;
 
-var userName = prompt("Hello what's your name?");
-  console.log("This is the users name" + " " + userName);
-  alert("Hi" + " " + userName + " " + "I'm going to ask you a couple of yes or no questions so you can get to know me.");
+alert("Welcome to my guessing game. I'm going to ask you a couple of yes or no questions so you can get to know me.");
+
+function updatePage(elId, text) {
+  document.getElementById(elId).textContent = text;
+}
+
+
+function userScore() {
+  updatePage("userScore", "You got " + counter + " out of " + questions.length + " correct!");
+}
+
 
 function game(question, answer) {
   var ques = prompt(question)
   console.log("answers to question " + ques);
   console.log(answer + ": answer");
   console.log(answer == ques);
+
+  updatePage("question", question);
+  updatePage("answer", answer);
+
   if(answer == ques) {
     counter +=1
     console.log(counter);
-    alert("Congrats! You are correct!  You've guessed " + counter + " out of 3 correct.");
+  updatePage("isCorrect", "Congrats! You are correct!  You've guessed " + counter + " out of 3 correct.");
   } else {
-    alert("Sorry, you are incorrect.");
+  updatePage("isCorrect", "Sorry, you are incorrect.");
   }
 };
 
   for (var i = 0; i < questions.length; i++) {
     game(questions[i], answers [i]);
-};
+}
+
+
+userScore();
+
+updatePage("question", " ");
+updatePage("answer", " ");
+updatePage("is correct", " ");
+updatePage("userScore", " ");
 
 var quesBonus = false;
 while(!quesBonus){
 var ques4 = parseInt(prompt("Bonus question: How many countries have I travelled to? *Hint its between 1 - 15*"));
   console.log("Answer to bonus question" + " " + quesBonus);
-  var numCountries = 12;
+  updatePage('answer', 'You guessed: ' + ques4);
 
+var numCountries = 12;
 if (ques4 === numCountries){
-  alert("Yup I have been to 12 countries");
+  updatePage("is correct", "Yup I have been to 12 countries");
   quesBonus = true;
 } else if (numCountries < ques4) {
-  alert("You're too high, guess again!");
+  updatePage("is correct", "You're too high, guess again!");
 } else if (numCountries > ques4){
-  alert("You're too low, guess again!");
-}
+  updatePage("is correct", "You're too low, guess again!");
+  }
 };
+
 
 // .
 
-//   var counter = 0;
-//
-
-//
-//   var ques1 = prompt("Do I have any pets?");
-//    console.log("Answer to ques1" + " " + ques1);
-//
-//   if (ques1 === "no" ||  ques1 === "NO"){
-//    console.log("no is correct");
-//    alert(userName + " " + "you're right I dont have any pets.");
-//    counter ++;
-//  } else if (ques1 === "yes" || ques1 === "YES") {
-//      console.log("yes is incorrect");
-//      alert("Wrong! I don't have any pets");
-//   } else if (ques1 !== "yes" || "YES" || "no" || "NO"){
-//      console.log("incorrect input");
-//      alert("incorrect input");
-//   };
-//
-//
-//   var ques2 = prompt("Do I love Redbull?");
-//    console.log("Answer to ques2" + " " + ques2);
-//
-//   if (ques2 === "yes" || ques2 === "YES") {
-//      console.log("yes is correct");
-//      alert("YES!"+ " " + userName + " " + "Redbull is life!!");
-//      counter ++;
-//    } else if (ques2 === "no" || ques2 ==="NO") {
-//       console.log("no is incorrect");
-//       alert("You don't know me at all.  I love Redbull")
-//    } else if (game !== "yes" || "YES" || "no" || "NO"){
-//       console.log("incorrect input");
-//       alert("incorrect input");
-//    };
-//
-//   var ques3 = prompt("Is black my favorite color?");
-//    console.log("Answer to ques3" + " " + ques3);
-//
-//   if (ques3 === "yes" || ques3 === "YES") {
-//     console.log("yes is correct");
-//     alert("Yup! All black errthang");
-//     counter ++;
-//   } else if (ques3 === "no" || ques3 === "NO"){
-//      console.log("no is incorrect");
-//      alert("Wrong! Black is my favorite color.");
-//   } else if (game !== "yes" || "YES" || "no" || "NO"){
-//      console.log("incorrect input");
-//      alert("incorrect input");
-//   };
-//
-//   alert(userName + " " + "you got" + " " + counter + " " + "out of 3 right!")
-//
-//
+ //  var counter = 0;
+ //
+ //
+ //
+ //  var ques1 = prompt("Do I have any pets?");
+ //   console.log("Answer to ques1" + " " + ques1);
+ //
+ //  if (ques1 === "no" ||  ques1 === "NO"){
+ //   console.log("no is correct");
+ //   alert(userName + " " + "you're right I dont have any pets.");
+ //   counter ++;
+ // } else if (ques1 === "yes" || ques1 === "YES") {
+ //     console.log("yes is incorrect");
+ //     alert("Wrong! I don't have any pets");
+ //  } else if (ques1 !== "yes" || "YES" || "no" || "NO"){
+ //     console.log("incorrect input");
+ //     alert("incorrect input");
+ //  };
+ //
+ //
+ //  var ques2 = prompt("Do I love Redbull?");
+ //   console.log("Answer to ques2" + " " + ques2);
+ //
+ //  if (ques2 === "yes" || ques2 === "YES") {
+ //     console.log("yes is correct");
+ //     alert("YES!"+ " " + userName + " " + "Redbull is life!!");
+ //     counter ++;
+ //   } else if (ques2 === "no" || ques2 ==="NO") {
+ //      console.log("no is incorrect");
+ //      alert("You don't know me at all.  I love Redbull")
+ //   } else if (game !== "yes" || "YES" || "no" || "NO"){
+ //      console.log("incorrect input");
+ //      alert("incorrect input");
+ //   };
+ //
+ //  var ques3 = prompt("Is black my favorite color?");
+ //   console.log("Answer to ques3" + " " + ques3);
+ //
+ //  if (ques3 === "yes" || ques3 === "YES") {
+ //    console.log("yes is correct");
+ //    alert("Yup! All black errthang");
+ //    counter ++;
+ //  } else if (ques3 === "no" || ques3 === "NO"){
+ //     console.log("no is incorrect");
+ //     alert("Wrong! Black is my favorite color.");
+ //  } else if (game !== "yes" || "YES" || "no" || "NO"){
+ //     console.log("incorrect input");
+ //     alert("incorrect input");
+ //  };
+ //
+ //  alert(userName + " " + "you got" + " " + counter + " " + "out of 3 right!")
+ //
+ //
