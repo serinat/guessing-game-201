@@ -1,65 +1,37 @@
-var questions = ["Do I have any pets?", "Do I love Redbull?", "Is black my favorite color?"];
-var answers = ["no", "yes", "yes"];
-var counter = 0;
+var numCorrect = 0;
+
+var ans1 = document.getElementById('a1');
+var ans2 = document.getElementById('a2');
+var ans3 = document.getElementById('a3');
+var bonus = document.getElementById('bonus');
+var correctCount = document.getElementById('elCorrect');
+
+var questions = ["Do I have any pets?", "Do I love Redbull?", "Is black my favorite color?", "How many countries have I travelled to?"];
+var answers = ["no", "yes", "yes", "12"];
+var els = [ans1, ans2, ans3, bonus]
 
 alert("Welcome to my guessing game. I'm going to ask you a couple of yes or no questions so you can get to know me.");
 
-function updatePage(elId, text) {
-  document.getElementById(elId).textContent = text;
-}
+function game(questions, answers, index) {
+  var ques = prompt(questions).toLowerCase();
 
 
-function userScore() {
-  updatePage("userScore", "You got " + counter + " out of " + questions.length + " correct!");
-}
+  if (ques === answers || ques === parseInt(answers)) {
+    console.log(ques + ' correct');
+    els[index].textContent = ques + ' is correct';
+    numCorrect++
 
-
-function game(question, answer) {
-  var ques = prompt(question)
-  console.log("answers to question " + ques);
-  console.log(answer + ": answer");
-  console.log(answer == ques);
-
-  updatePage("question", question);
-  updatePage("answer", answer);
-
-  if(answer == ques) {
-    counter +=1
-    console.log(counter);
-  updatePage("isCorrect", "Congrats! You are correct!  You've guessed " + counter + " out of 3 correct.");
   } else {
-  updatePage("isCorrect", "Sorry, you are incorrect.");
+    console.log(ques + ' is incorrect');
+    els[index].textContent = ques + ' is incorrect';
+    }
   }
-};
 
   for (var i = 0; i < questions.length; i++) {
-    game(questions[i], answers [i]);
+    game(questions[i], answers [i], i);
 }
 
-
-userScore();
-
-updatePage("question", " ");
-updatePage("answer", " ");
-updatePage("is correct", " ");
-updatePage("userScore", " ");
-
-var quesBonus = false;
-while(!quesBonus){
-var ques4 = parseInt(prompt("Bonus question: How many countries have I travelled to? *Hint its between 1 - 15*"));
-  console.log("Answer to bonus question" + " " + quesBonus);
-  updatePage('answer', 'You guessed: ' + ques4);
-
-var numCountries = 12;
-if (ques4 === numCountries){
-  updatePage("is correct", "Yup I have been to 12 countries");
-  quesBonus = true;
-} else if (numCountries < ques4) {
-  updatePage("is correct", "You're too high, guess again!");
-} else if (numCountries > ques4){
-  updatePage("is correct", "You're too low, guess again!");
-  }
-};
+elCorrect.textContent = "You got " + numCorrect + " out of 4 questions!"
 
 
 // .
